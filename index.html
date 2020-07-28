@@ -195,12 +195,12 @@
             .then(res => {
               res.json().then(cryptoUSD => {
                 for(var i = 0;i < cryptoUSD.length; i++){
-
-                cryptoUSD[i].price_change_percentage_24h_in_currency = cryptoUSD[i].price_change_percentage_24h_in_currency.toFixed(2);
-                cryptoUSD[i].price_change_percentage_7d_in_currency = cryptoUSD[i].price_change_percentage_7d_in_currency.toFixed(2);
-                cryptoUSD[i].price_change_percentage_1h_in_currency = cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(2);
-                cryptoUSD[i].current_price= cryptoUSD[i].current_price.toFixed(2);
-
+                cryptoUSD[i].current_price= cryptoUSD[i].current_price.toLocaleString();
+                cryptoUSD[i].price_change_percentage_1h_in_currency = cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(1);
+                cryptoUSD[i].price_change_percentage_24h_in_currency = cryptoUSD[i].price_change_percentage_24h_in_currency.toFixed(1);
+                cryptoUSD[i].price_change_percentage_7d_in_currency = cryptoUSD[i].price_change_percentage_7d_in_currency.toFixed(1);
+                cryptoUSD[i].total_volume = cryptoUSD[i].total_volume.toLocaleString();
+                cryptoUSD[i].market_cap = cryptoUSD[i].market_cap.toLocaleString(); 
                 }
                 $("#currencies-list").mirandajs(cryptoUSD);
 
