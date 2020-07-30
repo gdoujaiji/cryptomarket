@@ -149,8 +149,8 @@
                                                 <th>Rank</th>
                                                 <th>Name</th>
                                                 <th>Volume (24h)</th>
-                                                <th>Market Fees</th>
-                                                <th>Taker Fees</th>
+                                                <!--<th>Market Fees</th>
+                                                <th>Taker Fees</th>-->
                                                 <th>Launched</th>
                                             </tr>
                                         </thead>
@@ -158,9 +158,9 @@
                                             <tr>
                                                 <td>[[trust_score_rank]]</td>
                                                 <td><img src=[[image]] style="width: 25px; height: 25px"/><a href="[[url]]"><B> [[name]]</B></a></td>
-                                                <td>[[trade_volume_24h_btc]]</td>
-                                                <td>[[]]</td>
-                                                <td>[[]]</td>
+                                                <td>BTC [[trade_volume_24h_btc]]</td>
+                                                <!--<td>[[]]</td>
+                                                <td>[[]]</td>-->
                                                 
                                                 <td>[[year_established]] in <B>[[country]]</B></td>
                                             </tr>
@@ -196,7 +196,15 @@
               res.json().then(cryptoUSD => {
                 for(var i = 0;i < cryptoUSD.length; i++){
                 cryptoUSD[i].current_price= cryptoUSD[i].current_price.toLocaleString();
-                cryptoUSD[i].price_change_percentage_1h_in_currency = cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(1);
+                //cryptoUSD[i].price_change_percentage_1h_in_currency = cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(1);
+                var number = cryptoUSD[i].price_change_percentage_1h_in_currency;
+                  if(number < 0){ 
+                    var color = 'red'
+                  } else {
+                    var color = 'green'
+                  }
+                cryptoUSD[i].price_change_percentage_1h_in_currency = "<span style='"+ color +"'>"+cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(1) + "</span>";
+
                 cryptoUSD[i].price_change_percentage_24h_in_currency = cryptoUSD[i].price_change_percentage_24h_in_currency.toFixed(1);
                 cryptoUSD[i].price_change_percentage_7d_in_currency = cryptoUSD[i].price_change_percentage_7d_in_currency.toFixed(1);
                 cryptoUSD[i].total_volume = cryptoUSD[i].total_volume.toLocaleString();
@@ -210,9 +218,14 @@
               console.log(errr);
             })
           
-          fetch(cryptoExchangesList)
+            fetch(cryptoExchangesList)
             .then(res => {
               res.json().then(exchangesList => {
+                // trade_volume_24h_btc
+                for(var ii = 0;ii < exchangesList.length; ii++){
+
+                  exchangesList[ii].trade_volume_24h_btc = exchangesList[ii].trade_volume_24h_btc.toLocaleString();
+                }
                 $("#exchanges-list").mirandajs(exchangesList);
               })
             })
