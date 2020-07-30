@@ -131,9 +131,9 @@
                                                 <a href="#"><B>[[name]]</B></a></td>
                                                 <td style="text-transform: uppercase;">[[symbol]]</td>
                                                 <td>$[[current_price]]</td>
-                                                <td>[[price_change_percentage_1h_in_currency]]%</td>
-                                                <td>[[price_change_percentage_24h_in_currency]]%</td>
-                                                <td>[[price_change_percentage_7d_in_currency]]%</td>
+                                                <td>[[price_change_percentage_1h_in_currency]]</td>
+                                                <td>[[price_change_percentage_24h_in_currency]]</td>
+                                                <td>[[price_change_percentage_7d_in_currency]]</td>
                                                 <td>$[[total_volume]]</td>
                                                 <td>$[[market_cap]]</td>
                                                 <td>Last 7 Days</td>
@@ -197,16 +197,36 @@
                 for(var i = 0;i < cryptoUSD.length; i++){
                 cryptoUSD[i].current_price= cryptoUSD[i].current_price.toLocaleString();
                 //cryptoUSD[i].price_change_percentage_1h_in_currency = cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(1);
-                var number = cryptoUSD[i].price_change_percentage_1h_in_currency;
-                  if(number < 0){ 
-                    var color = 'red'
-                  } else {
-                    var color = 'green'
-                  }
-                cryptoUSD[i].price_change_percentage_1h_in_currency = "<span style='"+ color +"'>"+cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(1) + "</span>";
+                //var number = cryptoUSD[i].price_change_percentage_1h_in_currency;
+                //  if(number < 0){ 
+                //    var color = 'red'
+                //  } else {
+                //    var color = 'green'
+                //  }
+                //cryptoUSD[i].price_change_percentage_1h_in_currency = "<span style='" + color + "'>" + cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(1); + "</span>"
 
-                cryptoUSD[i].price_change_percentage_24h_in_currency = cryptoUSD[i].price_change_percentage_24h_in_currency.toFixed(1);
-                cryptoUSD[i].price_change_percentage_7d_in_currency = cryptoUSD[i].price_change_percentage_7d_in_currency.toFixed(1);
+                //cryptoUSD[i].price_change_percentage_24h_in_currency = cryptoUSD[i].price_change_percentage_24h_in_currency.toFixed(1);
+                //cryptoUSD[i].price_change_percentage_7d_in_currency = cryptoUSD[i].price_change_percentage_7d_in_currency.toFixed(1);
+                  var h = cryptoUSD[i].price_change_percentage_1h_in_currency;
+                  if(h < 0){ 
+                    cryptoUSD[i].price_change_percentage_1h_in_currency = "<span style='color:red'>" + cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(1) + "%</span>";
+                  }else {
+                    cryptoUSD[i].price_change_percentage_1h_in_currency = "<span style='color:green'>" + cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(1) + "%</span>";
+                  }
+                  
+                  var hh = cryptoUSD[i].price_change_percentage_24h_in_currency;
+                  if(hh < 0){ 
+                    cryptoUSD[i].price_change_percentage_24h_in_currency = "<span style='color:red'>" + cryptoUSD[i].price_change_percentage_24h_in_currency.toFixed(1) + "%</span>";
+                  }else {
+                    cryptoUSD[i].price_change_percentage_24h_in_currency = "<span style='color:green'>" + cryptoUSD[i].price_change_percentage_24h_in_currency.toFixed(1) + "%</span>";
+                  }
+                
+                  var d = cryptoUSD[i].price_change_percentage_7d_in_currency;
+                  if(d < 0){ 
+                    cryptoUSD[i].price_change_percentage_7d_in_currency = "<span style='color:red'>" + cryptoUSD[i].price_change_percentage_7d_in_currency.toFixed(1) + "%</span>";
+                  }else {
+                    cryptoUSD[i].price_change_percentage_7d_in_currency = "<span style='color:green'>" + cryptoUSD[i].price_change_percentage_7d_in_currency.toFixed(1) + "%</span>";
+                  }
                 cryptoUSD[i].total_volume = cryptoUSD[i].total_volume.toLocaleString();
                 cryptoUSD[i].market_cap = cryptoUSD[i].market_cap.toLocaleString(); 
                 }
