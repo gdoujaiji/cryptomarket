@@ -19,6 +19,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         
         <script src="./miranda/js/jquery.miranda.min.js"></script>
+        <script src="https://cdnjs.cloudfare.com/ajax/libs/chart.js/2.6.0/chart.min.js"></script>
         <style>
             .body{
               margin: 80px;
@@ -136,7 +137,7 @@
                                                 <td>[[price_change_percentage_7d_in_currency]]</td>
                                                 <td>$[[total_volume]]</td>
                                                 <td>$[[market_cap]]</td>
-                                                <td>Last 7 Days</td>
+                                                <td>[[cryptoUSD[i].sparkline_in_7d]]</td>
                                             </tr>
 
                                         </tbody>
@@ -229,7 +230,23 @@
                   }
                 cryptoUSD[i].total_volume = cryptoUSD[i].total_volume.toLocaleString();
                 cryptoUSD[i].market_cap = cryptoUSD[i].market_cap.toLocaleString(); 
+
+                //cryptoUSD[i].sparkline_in_7d.price = "<canvas id='dchart'></canvas>"
+                /*
+                let myChart = document.getElementById('dchart').getContext('2d');
+
+                let myDChart = new Chart(myChart, {
+                    type: 'line',
+                    data: {
+                      //labels: [],
+                      datasets: [cryptoUSD[i].sparkline_in_7d.price]
+                    },
+                    options: {}
+                });
+                */
                 }
+                //cryptoUSD[i].sparkline_in_7d.price = myDChart;
+                
                 $("#currencies-list").mirandajs(cryptoUSD);
 
               })
