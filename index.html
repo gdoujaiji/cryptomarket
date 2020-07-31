@@ -137,7 +137,7 @@
                                                 <td>[[price_change_percentage_7d_in_currency]]</td>
                                                 <td>$[[total_volume]]</td>
                                                 <td>$[[market_cap]]</td>
-                                                <td>[[cryptoUSD[i].sparkline_in_7d]]</td>
+                                                <td>Last 7 days</td>
                                             </tr>
 
                                         </tbody>
@@ -150,8 +150,7 @@
                                                 <th>Rank</th>
                                                 <th>Name</th>
                                                 <th>Volume (24h)</th>
-                                                <!--<th>Market Fees</th>
-                                                <th>Taker Fees</th>-->
+
                                                 <th>Launched</th>
                                             </tr>
                                         </thead>
@@ -160,8 +159,7 @@
                                                 <td>[[trust_score_rank]]</td>
                                                 <td><img src=[[image]] style="width: 25px; height: 25px"/><a href="[[url]]"><B> [[name]]</B></a></td>
                                                 <td>BTC [[trade_volume_24h_btc]]</td>
-                                                <!--<td>[[]]</td>
-                                                <td>[[]]</td>-->
+
                                                 
                                                 <td>[[year_established]] in <B>[[country]]</B></td>
                                             </tr>
@@ -197,17 +195,7 @@
               res.json().then(cryptoUSD => {
                 for(var i = 0;i < cryptoUSD.length; i++){
                 cryptoUSD[i].current_price= cryptoUSD[i].current_price.toLocaleString();
-                //cryptoUSD[i].price_change_percentage_1h_in_currency = cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(1);
-                //var number = cryptoUSD[i].price_change_percentage_1h_in_currency;
-                //  if(number < 0){ 
-                //    var color = 'red'
-                //  } else {
-                //    var color = 'green'
-                //  }
-                //cryptoUSD[i].price_change_percentage_1h_in_currency = "<span style='" + color + "'>" + cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(1); + "</span>"
 
-                //cryptoUSD[i].price_change_percentage_24h_in_currency = cryptoUSD[i].price_change_percentage_24h_in_currency.toFixed(1);
-                //cryptoUSD[i].price_change_percentage_7d_in_currency = cryptoUSD[i].price_change_percentage_7d_in_currency.toFixed(1);
                   var h = cryptoUSD[i].price_change_percentage_1h_in_currency;
                   if(h < 0){ 
                     cryptoUSD[i].price_change_percentage_1h_in_currency = "<span style='color:red'>" + cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(1) + "%</span>";
@@ -231,21 +219,9 @@
                 cryptoUSD[i].total_volume = cryptoUSD[i].total_volume.toLocaleString();
                 cryptoUSD[i].market_cap = cryptoUSD[i].market_cap.toLocaleString(); 
 
-                //cryptoUSD[i].sparkline_in_7d.price = "<canvas id='dchart'></canvas>"
-                /*
-                let myChart = document.getElementById('dchart').getContext('2d');
 
-                let myDChart = new Chart(myChart, {
-                    type: 'line',
-                    data: {
-                      //labels: [],
-                      datasets: [cryptoUSD[i].sparkline_in_7d.price]
-                    },
-                    options: {}
-                });
-                */
                 }
-                //cryptoUSD[i].sparkline_in_7d.price = myDChart;
+
                 
                 $("#currencies-list").mirandajs(cryptoUSD);
 
