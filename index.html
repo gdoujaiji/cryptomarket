@@ -198,7 +198,7 @@
 
                   let h = cryptoUSD[i].price_change_percentage_1h_in_currency; //price_change_percentage_1h_in_currency
                   if(h < 0){ 
-                    cryptoUSD[i].price_change_percentage_1h_in_currency = "<span style='color:red'>" + cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(2) + "%</span>";
+                    cryptoUSD[i].price_change_percentage_1h_in_currency = "<span style='color:red'>" + cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(1) + "%</span>";
                   }else {
                     //cryptoUSD[i].price_change_percentage_1h_in_currency = "<span style='color:green'>" + cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(2) + "%</span>";
                     //cryptoUSD[i].price_change_percentage_1h_in_currency = "<span style='color:green'>" + cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(1) + "%</span>";
