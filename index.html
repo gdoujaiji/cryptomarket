@@ -183,7 +183,7 @@
         </footer>
         
         <script>
-          const BASE_API ="https://api.coingecko.com/api/v3/";
+          const BASE_API ="https://api.coingecko.com/api/v3/"; // coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d
           const CRYPTO_CURRENCIES_USD_API = "coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d";
           //const CRYPTO_CURRENCIES_EUR_API = "coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C%2024h%2C%207d";
           const cryptoExchangesList = "https://api.coingecko.com/api/v3/exchanges";
@@ -196,11 +196,11 @@
                 for(var i = 0;i < cryptoUSD.length; i++){
                 cryptoUSD[i].current_price= cryptoUSD[i].current_price.toLocaleString();
 
-                  var h = cryptoUSD[i].price_change_percentage_1h_in_currency;
+                  var h = cryptoUSD[i].price_change_percentage_1h_in_currency; //price_change_percentage_1h_in_currency
                   if(h < 0){ 
                     cryptoUSD[i].price_change_percentage_1h_in_currency = "<span style='color:red'>" + cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(1); + "%</span>"
                   }else {
-                    cryptoUSD[i].price_change_percentage_1h_in_currency = "<span style='color:green'>" + cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(); + "%</span>"
+                    //cryptoUSD[i].price_change_percentage_1h_in_currency = "<span style='color:green'>" + cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(); + "%</span>"
                   }
                   
                   var hh = cryptoUSD[i].price_change_percentage_24h_in_currency;
