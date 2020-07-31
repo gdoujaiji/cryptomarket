@@ -196,7 +196,7 @@
                 for(var i = 0;i < cryptoUSD.length; i++){
                 cryptoUSD[i].current_price= cryptoUSD[i].current_price.toLocaleString();
 
-                  var h = cryptoUSD[i].price_change_percentage_1h_in_currency; //price_change_percentage_1h_in_currency
+                  let h = cryptoUSD[i].price_change_percentage_1h_in_currency; //price_change_percentage_1h_in_currency
                   if(h < 0){ 
                     cryptoUSD[i].price_change_percentage_1h_in_currency = "<span style='color:red'>" + cryptoUSD[i].price_change_percentage_1h_in_currency.toFixed(2) + "%</span>";
                   }else {
